@@ -124,5 +124,11 @@ namespace LojaCL
             FrmCrudCartaoVenda cv = new FrmCrudCartaoVenda();
             cv.Show();
         }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPedido pd = new FrmPedido();
+            pd.Show();
+        }
     }
 }
