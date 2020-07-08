@@ -12,6 +12,24 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\xampp\htdocs\sistema\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +50,37 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CB71A2C52D1B8E7F4779B68186A70DB27838F9A8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LojaCL_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,11 +96,20 @@
   <ItemGroup>
     <Compile Include="Conexao.cs" />
     <Compile Include="Cripto.cs" />
-    <Compile Include="FrmPedido.cs">
-      <SubType>Form</SubType>
+    <Compile Include="DBLojaDSMaster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLojaDSMaster.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedido.Designer.cs">
-      <DependentUpon>FrmPedido.cs</DependentUpon>
+    <Compile Include="DSVenda.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVenda.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSVenda2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVenda2.xsd</DependentUpon>
     </Compile>
     <Compile Include="FrmCrudCartaoVenda.cs">
       <SubType>Form</SubType>
@@ -84,11 +141,59 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPedido.Designer.cs">
+      <DependentUpon>FrmPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelCartao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelCartao.Designer.cs">
+      <DependentUpon>FrmRelCartao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelCliente.Designer.cs">
+      <DependentUpon>FrmRelCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelProdTipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelProdTipo.Designer.cs">
+      <DependentUpon>FrmRelProdTipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelProduto.Designer.cs">
+      <DependentUpon>FrmRelProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelUsuario.Designer.cs">
+      <DependentUpon>FrmRelUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelVenda.Designer.cs">
+      <DependentUpon>FrmRelVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelVenda2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelVenda2.Designer.cs">
+      <DependentUpon>FrmRelVenda2.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmVenda.cs">
       <SubType>Form</SubType>
@@ -98,9 +203,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmPedido.resx">
-      <DependentUpon>FrmPedido.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FrmCrudCartaoVenda.resx">
       <DependentUpon>FrmCrudCartaoVenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,8 +219,32 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedido.resx">
+      <DependentUpon>FrmPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelCartao.resx">
+      <DependentUpon>FrmRelCartao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelCliente.resx">
+      <DependentUpon>FrmRelCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelProdTipo.resx">
+      <DependentUpon>FrmRelProdTipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelProduto.resx">
+      <DependentUpon>FrmRelProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelUsuario.resx">
+      <DependentUpon>FrmRelUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelVenda.resx">
+      <DependentUpon>FrmRelVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelVenda2.resx">
+      <DependentUpon>FrmRelVenda2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVenda.resx">
       <DependentUpon>FrmVenda.cs</DependentUpon>
@@ -131,6 +258,47 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RelCa.rdlc" />
+    <EmbeddedResource Include="RelCli.rdlc" />
+    <EmbeddedResource Include="RelProd.rdlc" />
+    <EmbeddedResource Include="RelProdTipo.rdlc" />
+    <EmbeddedResource Include="RelUsu.rdlc" />
+    <EmbeddedResource Include="RelVenda.rdlc" />
+    <EmbeddedResource Include="RelVenda2.rdlc" />
+    <None Include="DBLojaDSMaster.xsc">
+      <DependentUpon>DBLojaDSMaster.xsd</DependentUpon>
+    </None>
+    <None Include="DBLojaDSMaster.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBLojaDSMaster.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBLojaDSMaster.xss">
+      <DependentUpon>DBLojaDSMaster.xsd</DependentUpon>
+    </None>
+    <None Include="DSVenda.xsc">
+      <DependentUpon>DSVenda.xsd</DependentUpon>
+    </None>
+    <None Include="DSVenda.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVenda.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSVenda.xss">
+      <DependentUpon>DSVenda.xsd</DependentUpon>
+    </None>
+    <None Include="DSVenda2.xsc">
+      <DependentUpon>DSVenda2.xsd</DependentUpon>
+    </None>
+    <None Include="DSVenda2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVenda2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSVenda2.xss">
+      <DependentUpon>DSVenda2.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,6 +311,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

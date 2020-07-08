@@ -46,12 +46,14 @@ namespace LojaCL
                 this.Hide();
                 FrmPrincipal pri = new FrmPrincipal();
                 pri.Show();
+                usuario.Close();
                 Conexao.fecharConexao();
             } else
             {
                 MessageBox.Show("Login ou senha incorretos! Tente novamente!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLogin.Text = "";
                 txtSenha.Text = "";
+                usuario.Close();
                 con.Close();
             }
         }

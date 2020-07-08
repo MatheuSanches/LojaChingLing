@@ -18,33 +18,34 @@ namespace LojaCL
             InitializeComponent();
         }
 
-        public void CarregadgvPriPedi() 
+        public void CarregadgvPripedi()
         {
             SqlConnection con = Conexao.obterConexao();
             String query = "select * from cartaovenda";
             SqlCommand cmd = new SqlCommand(query, con);
             Conexao.obterConexao();
             cmd.CommandType = CommandType.Text;
-            //Usa para prencher DataTable
+            //SQLDataAdapter, usado para preencher o DataTable
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             //Adiciona um DataTable carregado em memória
             DataTable cartao = new DataTable();
             da.Fill(cartao);
-            dgvPriPedi.DataSource = cartao;
-            //Quando for criar um controle em tempo de execução é muito importante atribuir um nome pare ele, e também definir as principais propriedades dele
+            //Fonte de dados
+            dgvPripedi.DataSource = cartao;
+            //Quando for criar um controle em tempo de execução, é importante atribuir um nome para ele, e definir as principais propriedades do controle
             DataGridViewButtonColumn fechar = new DataGridViewButtonColumn();
             fechar.Name = "FecharConta";
             fechar.HeaderText = "Fechar Conta";
             fechar.Text = "Fechar Conta";
             fechar.UseColumnTextForButtonValue = true;
             int columIndex = 4;
-            dgvPriPedi.Columns.Insert(columIndex, fechar);
+            dgvPripedi.Columns.Insert(columIndex, fechar);
             Conexao.fecharConexao();
-            dgvPriPedi.CellClick += dgvPriPedi_CellClick;
-            int colunas = dgvPriPedi.Columns.Count;
+            dgvPripedi.CellClick += dgvPripedi_CellClick;
+            int colunas = dgvPripedi.Columns.Count;
             if(colunas > 5)
             {
-                dgvPriPedi.Columns.Remove("FecharConta");
+                dgvPripedi.Columns.Remove("FecharConta");
             }
         }
 
@@ -95,20 +96,22 @@ namespace LojaCL
             usu.Show();
         }
 
-        private void FrmPrincipal_Load(object sender, EventArgs e)
+        private void cartãoDeVendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CarregadgvPriPedi();
+            FrmCrudCartaoVenda ven = new FrmCrudCartaoVenda();
+            ven.Show();
         }
 
-        private void dgvPriPedi_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPripedi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                if (e.ColumnIndex == dgvPriPedi.Columns["FecharConta"].Index)
+                if(e.ColumnIndex == dgvPripedi.Columns["FecharConta"].Index)
                 {
-                    if(Application.OpenForms["FrmVenda"] == null) 
+                    if(Application.OpenForms["FrmVenda"] == null)
                     {
-                        FrmVenda ven = new FrmVenda();
+                        string numero = dgvPripedi[1, e.RowIndex].Value.ToString();
+                        FrmVenda ven = new FrmVenda(numero);
                         ven.Show();
                     }
                 }
@@ -119,16 +122,45 @@ namespace LojaCL
             }
         }
 
-        private void cartaoDeVendaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            FrmCrudCartaoVenda cv = new FrmCrudCartaoVenda();
-            cv.Show();
+            CarregadgvPripedi();
         }
 
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmPedido pd = new FrmPedido();
-            pd.Show();
+            FrmPedido ped = new FrmPedido();
+            ped.Show();
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRelCliente relcli = new FrmRelCliente();
+            relcli.Show();
+        }
+
+        private void produtosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRelProduto relprod = new FrmRelProduto();
+            relprod.Show();
+        }
+
+        private void usuáriosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRelUsuario relusu = new FrmRelUsuario();
+            relusu.Show();
+        }
+
+        private void cartãoDeVendaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRelCartao relca = new FrmRelCartao();
+            relca.Show();
+        }
+
+        private void produtoTipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRelProdTipo relprotipo = new FrmRelProdTipo();
+            relprotipo.Show();
         }
     }
 }
